@@ -1,12 +1,13 @@
 import 'dart:io';
-import 'package:instagram_demo/utils/style.dart';
-import 'package:instagram_demo/utils/ui_helper.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:share/share.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../utils/style.dart';
+import '../utils/ui_helper.dart';
 
 
 class PostWidget extends StatefulWidget {

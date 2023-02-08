@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:instagram_demo/utils/style.dart';
 import '../utils/globals.dart';
+import '../utils/style.dart';
 import '../utils/ui_helper.dart';
 import '../widgets/post_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';

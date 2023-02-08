@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_demo/screens/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:instagram_demo/screens/splash_screen.dart';
+import 'package:royal_task/screens/home_screen.dart';
+import 'package:royal_task/screens/splash_screen.dart';
 
 
 

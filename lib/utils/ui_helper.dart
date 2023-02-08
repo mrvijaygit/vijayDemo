@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_demo/utils/style.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:royal_task/utils/style.dart';
 import 'globals.dart';
 
 class UiHelper {
