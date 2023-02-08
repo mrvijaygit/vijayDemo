@@ -1,4 +1,4 @@
-name: instagram_demo
+name: royal_task
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -60,7 +60,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/instagramIcon.jpg"
+  image_path: "assets/userImage.jpg"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
