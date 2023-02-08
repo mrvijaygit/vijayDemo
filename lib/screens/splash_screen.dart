@@ -36,46 +36,12 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-                child: SizedBox(
-                  height: 70,
-                    width: 70,
-                    child: Image.asset("assets/instagramIcon.jpg"))
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 40.0),
-              child: Column(
-                children: [
-                  Text('from',style: Styles.headingStyle5(
-                      color: Colors.grey,
-                      isBold:true
-                  ),),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(FontAwesomeIcons.meta, size: 20.0),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Text('Meta',style: Styles.headingStyle3(
-                        ),),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
+      body: Center(
+        child: Text('WELCOME',
+        style: Styles.headingStyle4(
+          isBold: true
+        ),),
+      )
     );
   }
 }

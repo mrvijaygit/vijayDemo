@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:instagram_demo/utils/style.dart';
 import '../utils/globals.dart';
 import '../utils/ui_helper.dart';
-import '../widgets/my_bottom_nav.dart';
 import '../widgets/post_widget.dart';
-import '../widgets/story_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -30,10 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Globals.primary,
         elevation: 0,
-        title: Text('Instagram',
-            style: Styles.headingStyle2()),
+        title: Text('Royal Task',
+            style: Styles.headingStyle2(
+              color: Colors.white
+            )),
         actions: <Widget>[
           InkWell(
             onTap: () async {
@@ -69,24 +68,17 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Icon(
                   Icons.add_box_outlined,
                   size: 27,
-                  color: Colors.black),
+                  color: Colors.white),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: const Icon(FontAwesomeIcons.facebookMessenger, color: Colors.black),
-          )
         ],
       ),
-      bottomNavigationBar: MyBottomNavBar(_currentIndex),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const StoriesWidget(),
-              const Divider(),
               if(isLoading)
                 const Center(
                   child:

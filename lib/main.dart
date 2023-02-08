@@ -3,7 +3,6 @@ import 'package:instagram_demo/screens/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:instagram_demo/screens/splash_screen.dart';
-import 'package:instagram_demo/widgets/my_bottom_nav.dart';
 
 
 
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'InstagramDemo',
+      title: 'Royal Task',
       theme: ThemeData(
         textTheme: Theme.of(context).textTheme.apply(
           fontFamily: GoogleFonts.openSans().fontFamily,

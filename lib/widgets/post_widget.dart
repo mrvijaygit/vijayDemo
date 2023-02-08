@@ -62,19 +62,14 @@ class _PostWidgetState extends State<PostWidget> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Row(
-                              children: const<Widget>[
-                                CircleAvatar(
-                                  radius: 20.0,
-                                  backgroundImage: AssetImage('assets/userImage.jpg'),
-                                ),
-                                SizedBox(width: 10.0),
-                                Text('user_name', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0)),
-                              ],
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const <Widget>[
+                            CircleAvatar(
+                              radius: 20.0,
+                              backgroundImage: AssetImage('assets/userImage.jpg'),
                             ),
-                            const Icon(Icons.more_vert)
+                            SizedBox(width: 10.0),
+                            Text('user_name', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0)),
                           ],
                         ),
                       ),
@@ -131,49 +126,37 @@ class _PostWidgetState extends State<PostWidget> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Row(
-                              children: <Widget>[
-                                InkWell(
-                                  onTap: () async {
-                                    DocumentReference _ref = _reference.doc(thisItem['id']);
-                                    Map<String, dynamic> dataToSend = {
-                                      'like' : thisItem['like'] == true ? false : true,
-                                      'likeCount' : thisItem['like'] == false ? thisItem['likeCount'] + 1
-                                          : thisItem['likeCount'] - 1
-                                    };
-                                    _ref.update(dataToSend);
-                                  },
-                                  child: thisItem['like'] == true ?
-                                  const Icon(FontAwesomeIcons.solidHeart, color: Colors.red, size: 25.0)
-                                      : const Icon(FontAwesomeIcons.heart, size: 25.0),
-                                ),
-                                const SizedBox(width: 15.0),
-                                const Icon(FontAwesomeIcons.comment, size: 25.0),
-                                const SizedBox(width: 15.0),
-                                InkWell(
-                                  onTap: () async {
-                                    UiHelper.openLoadingDialog(context,'Please Wait');
-                                    final uri = Uri.parse(thisItem['image']);
-                                    final res = await http.get(uri);
-                                    final bytes = res.bodyBytes;
-                                    final temp = await getTemporaryDirectory();
-                                    final path = '${temp.path}/image.jpg';
-                                    File(path).writeAsBytesSync(bytes);
-                                    Navigator.pop(context);
-                                    await Share.shareFiles([
-                                      path
-                                    ], text: 'XYZ shared Instagram post');
-                                  },
-                                    child: const Icon(FontAwesomeIcons.paperPlane, size: 25.0)),
-                              ],
-                            ),
                             InkWell(
                               onTap: () async {
-
+                                DocumentReference _ref = _reference.doc(thisItem['id']);
+                                Map<String, dynamic> dataToSend = {
+                                  'like' : thisItem['like'] == true ? false : true,
+                                  'likeCount' : thisItem['like'] == false ? thisItem['likeCount'] + 1
+                                      : thisItem['likeCount'] - 1
+                                };
+                                _ref.update(dataToSend);
                               },
-                              child: const Icon(FontAwesomeIcons.bookmark, size: 25.0))
+                              child: thisItem['like'] == true ?
+                              const Icon(FontAwesomeIcons.solidHeart, color: Colors.red, size: 25.0)
+                                  : const Icon(FontAwesomeIcons.heart, size: 25.0),
+                            ),
+                            const SizedBox(width: 15.0),
+                            InkWell(
+                              onTap: () async {
+                                UiHelper.openLoadingDialog(context,'Please Wait');
+                                final uri = Uri.parse(thisItem['image']);
+                                final res = await http.get(uri);
+                                final bytes = res.bodyBytes;
+                                final temp = await getTemporaryDirectory();
+                                final path = '${temp.path}/image.jpg';
+                                File(path).writeAsBytesSync(bytes);
+                                Navigator.pop(context);
+                                await Share.shareFiles([
+                                  path
+                                ], text: 'XYZ shared Instagram post');
+                              },
+                                child: const Icon(FontAwesomeIcons.paperPlane, size: 25.0)),
                           ],
                         ),
                       ),
@@ -184,14 +167,6 @@ class _PostWidgetState extends State<PostWidget> {
                               isBold: true
                             )),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 3.0),
-                        child: Text('1 hour ago',
-                            style: Styles.headingStyle6(
-                              isBold: true,
-                              color: Colors.grey
-                            )),
-                      )
                     ],
                   ),
                 );
